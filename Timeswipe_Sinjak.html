@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Синяк</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+body {
+    overflow: hidden;
+}
+
+body * {
+   -webkit-touch-callout: none;
+     -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+    
+
+        
+</style>
+    
+
+    
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+
+<div id='before' class='map'></div>
+<div id='after' class='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoidml0amF6enoiLCJhIjoiY2l3c3liZnZpMDBiZTJ6bWFpbDA5Ym1hcyJ9.T6cpNveIfkobDqFaNCkYww';
+
+// Set bounds to Синяк
+var bounds = [
+    [22.852189, 48.57210], // Southwest coordinates
+   [22.864431, 48.578385]  // Northeast coordinates  
+  ];  
+    
+    var beforeMap = new mapboxgl.Map({
+    container: 'before',
+    style: 'mapbox://styles/vitjazzz/cl9x8jfpw00b914qtro04l0l4',
+    center: [22.858465, 48.575057],
+    zoom: 15,
+    maxBounds: bounds // Sets bounds as max
+    
+});
+    
+
+var afterMap = new mapboxgl.Map({
+    container: 'after',
+    style: 'mapbox://styles/vitjazzz/cl9xc0568001u15mv14917puh',
+    center: [22.858465, 48.575057],
+    zoom: 15,
+    maxBounds: bounds // Sets bounds as max
+});
+   
+    
+var map = new mapboxgl.Compare(beforeMap, afterMap, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+});
+
+
+    
+
+            
+</script>
+    
+
+
+</body>
+</html>
